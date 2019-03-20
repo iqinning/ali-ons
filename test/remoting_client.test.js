@@ -39,6 +39,24 @@ describe('test/remoting_client.test.js', function() {
     assert(res.code === ResponseCode.TOPIC_NOT_EXIST);
   });
 
+  it('should invoke for namesrv with retry', async () => {
+    let retryCount = 0;
+    mm(client, 'invoke', async () => {
+      retryCount++;
+      mm.restore();
+      throw new Error('invoke fail');
+    });
+    const res = await client.invokeForNameSrvAtLeastOnce(new RemotingCommand({
+      code: RequestCode.GET_ROUTEINTO_BY_TOPIC,
+      customHeader: {
+        topic: 'NOT_EXISTS',
+      },
+    }), 5000);
+    assert(retryCount === 1);
+    assert(res);
+    assert(res.code === ResponseCode.TOPIC_NOT_EXIST);
+  });
+
   it('should invoke oneway ok', async () => {
     await client.invokeOneway(null, new RemotingCommand({
       code: RequestCode.GET_KV_CONFIG_BY_VALUE,
