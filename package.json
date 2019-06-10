@@ -1,7 +1,7 @@
 {
-  "name": "ali-ons",
+  "name": "@agile-framework/agile-rocketmq",
   "version": "3.6.5",
-  "description": "Aliyun Open Notification Service Client",
+  "description": "rocketmq nodejs client fork ali-ons",
   "main": "lib/index.js",
   "files": [
     "lib"
@@ -18,19 +18,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ali-sdk/ali-ons.git"
+    "url": "https://github.com/iqinning/ali-ons"
   },
   "keywords": [
     "ons",
     "aliyun",
     "ali-sdk"
   ],
-  "author": "gxcsoccer <gxcsoccer@126.com>",
+  "author": "qinning <qinning.qn@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ali-sdk/ali-ons/issues"
+    "url": "https://github.com/iqinning/ali-ons"
   },
-  "homepage": "https://github.com/ali-sdk/ali-ons#readme",
+  "homepage": "https://github.com/iqinning/ali-ons",
   "dependencies": {
     "JSON2": "^0.1.0",
     "address": "^1.1.0",
